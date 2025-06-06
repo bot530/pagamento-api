@@ -11,9 +11,9 @@ app.use(express.json());
 // Servir arquivos estáticos da pasta "public"
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Redirecionar "/" para "index.html"
+// Redirecionar "/" para "pagamento.html"
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'pagamento.html'));
 });
 
 // Configurar credencial do Mercado Pago
