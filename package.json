@@ -1,0 +1,14 @@
+{
+  "name": "pagamento-dinamico",
+  "version": "1.0.0",
+  "description": "Pagamento com Mercado Pago com valor dinâmico",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mercadopago": "^1.5.13"
+  }
+}
