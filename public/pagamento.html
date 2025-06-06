@@ -1,293 +1,595 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pagamento</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #fff;
-      margin: 0;
-      padding: 30px;
-      color: #333;
-    }
-    .checkout-container { max-width: 800px; margin: auto; }
-    .section-title {
-      color: #e91e63;
-      font-size: 28px;
-      text-align: right;
-      border-bottom: 2px solid #e91e63;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
-    }
-    .tabs { display: flex; margin-bottom: 20px; }
-    .tab-btn {
-      flex: 1; padding: 12px; background: #f2f2f2; border: none;
-      font-weight: bold; cursor: pointer; border-bottom: 3px solid transparent;
-      color: #555; transition: all 0.3s;
-    }
-    .tab-btn.active {
-      background: #fff; border-bottom: 3px solid #e91e63; color: #e91e63;
-    }
-    .tab-content { display: none; background: #f9f9f9; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
-    .tab-content.active { display: block; }
-    .form-group { margin-bottom: 18px; }
-    label { font-size: 14px; display: block; margin-bottom: 6px; font-weight: 600; color: #444; }
-    input, select {
-      width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px;
-    }
-    .btn-pay {
-      background-color: #e91e63; color: white; border: none; padding: 15px;
-      border-radius: 8px; font-size: 16px; font-weight: bold; width: 100%; cursor: pointer;
-    }
-    .pix-code {
-      text-align: center; padding: 20px; border: 2px dashed #ccc; border-radius: 10px; background: #fff;
-    }
-    .pix-code img { max-width: 200px; margin: 20px 0; }
-    .copy-btn {
-      background-color: #4caf50; color: white; border: none; padding: 10px 20px;
-      border-radius: 6px; cursor: pointer; font-weight: bold;
-    }
+ <head>
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title> WeBeauty </title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet"/>
+
+ </head>
+ <body>
+
+
+
+
+  <div class="top-bar">
+   <a href="#">Garanta agora </a>o seu <strong> we favorito! </strong>
+  </div>
+
+  <header>
+   <div class="header-main">
+    <div class="logo">
+     <img alt="Logo WeBeauty" src="assets/logo.svg"/>
+    </div>
+
+    <div class="search-bar">
+     <i data-lucide="search"> </i>
+     <input placeholder="Digite aqui o que procura..." type="text"/>
+    </div>
+
+
+    <div class="icon-buttons">
+     <span>
+      <a href="https://wa.me/5511919454166?text=Ol%C3%A1!%20Gostaria%20de%20rastrear%20meu%20pedido." target="_blank" style="text-decoration: none; color: inherit;">
+  <span>
+    <i data-lucide="truck"></i> Rastreio
+  </span>
+</a>
+
+
+     <span> <i data-lucide="refresh-ccw"></i>Trocar e Devolver</span>
+     <i data-lucide="user"> </i>
+    <i data-lucide="shopping-cart" onclick="toggleCart()"></i>
+
+
+
+     
+    </div>
+   </div>
+
+
   
-@media (max-width: 768px) {
-  .checkout-container {
-    padding: 10px;
-  }
-  .tabs {
-    flex-direction: column;
-  }
-  .tab-btn {
-    width: 100%;
-    margin-bottom: 8px;
-  }
-  .pix-code {
-    padding: 15px;
-  }
-  .pix-code img {
-    max-width: 100%;
-    height: auto;
-  }
-  .copy-btn, .btn-pay {
-    width: 100%;
-    margin-top: 10px;
-  }
-  .pix-botoes {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-</style>
-</head>
-<body>
-  <div class="checkout-container">
-    <h2 class="section-title">FINALIZAR COMPRA</h2>
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="cartao">CARTÃO DE CRÉDITO</button>
-      <button class="tab-btn" data-tab="pix">PIX</button>
+<nav class="main-nav">
+   <a href="subc/kits.html">kits</a>
+   <a href="subc/bath-body.html">bath&body</a>
+   <a href="subc/body-splash.html">body splash</a>
+   <a href="subc/perfumaria.html">perfumaria</a>
+   <a href="subc/skincare.html">skincare</a>
+   <a href="subc/body-cream.html">body cream</a>
+   <a href="subc/the-cream.html">the cream</a>
+   <a href="subc/the-oil.html">the oil</a>
+   <a href="subc/make.html">make</a>
+   <a href="subc/hair.html">hair</a>
+   <a href="subc/roll-on.html">roll-on</a>
+   <a href="subc/bem-estar.html">bem-estar</a>
+  </nav>
+ </header>
+
+
+
+<div class="carousel">
+  <div class="carousel-track">
+    <img src="assets/h1.gif" alt="Banner 1">
+    <img src="assets/h2.webp" alt="Banner 2">
+    <img src="assets/h3.gif" alt="Banner 3">
+    <img src="assets/h4.webp" alt="Banner 4">
+  </div>
+  <button class="carousel-btn prev" aria-label="Anterior">❮</button>
+  <button class="carousel-btn next" aria-label="Próximo">❯</button>
+  <div class="carousel-indicators">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+    <span class="dot" data-index="3"></span>
+  </div>
+</div>
+
+
+
+
+
+<!--pesquisa -->
+
+
+<div class="resultado-busca" style="display: none; text-align: center; margin-top: 40px;">
+  <h2 class="titulo-busca">buscar</h2>
+  <p class="subtitulo-busca"></p>
+</div>
+
+
+<!--PRODUTOS -->
+
+<h2 class="titulo-produtos">queridinhos da wepink</h2>
+
+<section class="produtos-section">
+<button class="btn-nav left" onclick="moverCarrossel(-1)"><span>&#10094;</span></button>
+
+
+  <div class="produtos-container" id="carrosselProdutos">
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 1" />
+      <h3>Batom Rosa Pink</h3>
+      <p class="descricao">Alta fixação e cor intensa</p>
+      <p class="preco-antigo">R$ 39,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 29,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
     </div>
 
-    <div class="tab-content active" id="cartao">
-      <div class="form-group">
-        <label for="valor">Valor (R$)</label>
-        <input type="number" id="valor" value="00.00" readonly />
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
       </div>
-      <div class="form-group">
-        <label for="card-number">Número do Cartão</label>
-        <input type="text" id="card-number" placeholder="1234 5678 9012 3456"/>
-      </div>
-      <div class="form-group">
-        <label for="installments">Parcelas</label>
-        <select id="installments">
-          <option value="1">1x sem juros</option>
-          <option value="2">2x sem juros</option>
-          <option value="3">3x sem juros</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="card-name">Nome no Cartão</label>
-        <input type="text" id="card-name" placeholder="Como no cartão"/>
-      </div>
-      <div class="form-group">
-        <label for="expiry">Validade</label>
-        <div style="display: flex; gap: 10px;">
-          <input type="text" id="expiry-month" placeholder="Mês" style="flex: 1"/>
-          <input type="text" id="expiry-year" placeholder="Ano" style="flex: 1"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="cvv">Código de Segurança (CVV)</label>
-        <input type="text" id="cvv" placeholder="123"/>
-      </div>
-      <div class="form-group">
-        <label for="cpf">CPF do Titular</label>
-        <input type="text" id="cpf" placeholder="999.999.999-99"/>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="email@email.com"/>
-      </div>
-      <button class="btn-pay" id="finalizar-pagamento">FINALIZAR PAGAMENTO</button>
     </div>
 
-    <div class="tab-content" id="pix">
-      <div class="form-group">
-        <label for="valor-pix">Valor (R$)</label>
-        <input type="number" id="valor-pix" value="00.00" readonly />
+
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 2" />
+      <h3>Gloss Crystal Shine</h3>
+      <p class="descricao">Efeito molhado e brilho intenso</p>
+      <p class="preco-antigo">R$ 49,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 29,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
+    </div>
+
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
       </div>
-      <div class="pix-code" id="pix-form">
-        <h3>Pagamento via PIX</h3>
-        <p>Escaneie o QR Code abaixo ou copie o código:</p>
-        <img src="" alt="QR Code PIX" id="pix-qrcode">
-        <pre id="pix-codigo" style="
-  font-size: 14px;
-  word-break: break-word;
-  white-space: pre-wrap;
-  background: #f4f4f4;
-  padding: 10px;
-  border-radius: 6px;
-  margin-bottom: 15px;
-  text-align: left;
-  max-width: 100%;
-  overflow-wrap: break-word;
-">Clique abaixo para gerar</pre>
-        <button class="copy-btn" id="gerar-pix">Gerar PIX</button>
-<button class="copy-btn" onclick="copiarPix()">Copiar Código Pix</button>
+    </div>
+
+
+
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 3" />
+      <h3>Delineador Black Precision</h3>
+      <p class="descricao">À prova d’água e longa duração</p>
+      <p class="preco-antigo">R$ 59,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 29,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
+    </div>
+
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 4" />
+      <h3>Base Fluida Natural</h3>
+      <p class="descricao">Cobertura média com acabamento leve</p>
+      <p class="preco-antigo">R$ 69,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 29,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
+    </div>
+
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 5" />
+      <h3>Pó Compacto Matte</h3>
+      <p class="descricao">Toque seco e sem oleosidade</p>
+      <p class="preco-antigo">R$ 54,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 29,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
+    </div>
+
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 6" />
+      <h3>Iluminador Glow</h3>
+      <p class="descricao">Brilho radiante e acabamento natural</p>
+      <p class="preco-antigo">R$ 64,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 29,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
+    </div>
+
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 7" />
+      <h3>Paleta de Sombras Nude</h3>
+      <p class="descricao">12 cores versáteis para o dia e noite</p>
+      <p class="preco-antigo">R$ 89,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 29,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
+    </div>
+
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 8" />
+      <h3>Blush Rosa Queimado</h3>
+      <p class="descricao">Toque natural e aparência saudável</p>
+      <p class="preco-antigo">R$ 49,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 87,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
+    </div>
+
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
       </div>
     </div>
   </div>
 
-  <script src="https://sdk.mercadopago.com/js/v2">
-function copiarPix() {
-  const codigo = document.getElementById("pix-codigo").innerText;
-  if (!codigo || codigo.includes("Clique abaixo para gerar")) {
-    alert("Gere o código Pix antes de copiar.");
-    return;
+<button class="btn-nav right" onclick="moverCarrossel(1)"><span>&#10095;</span></button>
+</section>
+
+
+
+
+<!--DESTAQUE DO MÊS-->
+<section class="destaque-do-mes">
+  <div class="destaque-imagem">
+    <img src="img/v3.webp" alt="VF Seduce Desodorante Colônia">
+  </div>
+  <div class="destaque-info">
+    <p class="destaque-hashtag">#destaque do mês</p>
+    <h2 class="destaque-nome">VF Seduce Desodorante Colônia 75ml - Wepink</h2>
+    <p class="destaque-descricao">uma aura de magnetismo, onde paixão e sedução se encontram</p>
+    <p class="destaque-preco">R$ 115,15</p>
+    <a href="#" class="destaque-botao">eu quero!</a>
+  </div>
+</section>
+
+
+
+<!--SEGUNDA REMESSA DE PRODUTOS-->
+
+<h2 class="titulo-produtos1">uma linha completa pra você</h2>
+
+<section class="produtos-section1">
+
+
+  <div class="produtos-container" id="carrosselProdutos">
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 1" />
+      <h3>Batom Rosa Pink</h3>
+      <p class="descricao">Alta fixação e cor intensa</p>
+      <p class="preco-antigo">R$ 39,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 29,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
+    </div>
+
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 2" />
+      <h3>Gloss Crystal Shine</h3>
+      <p class="descricao">Efeito molhado e brilho intenso</p>
+      <p class="preco-antigo">R$ 49,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 29,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
+    </div>
+
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
+      </div>
+    </div>
+
+
+
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 3" />
+      <h3>Delineador Black Precision</h3>
+      <p class="descricao">À prova d’água e longa duração</p>
+      <p class="preco-antigo">R$ 59,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 29,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
+    </div>
+
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="produto">
+      <img src="assets/p1.png" alt="Produto 4" />
+      <h3>Base Fluida Natural</h3>
+      <p class="descricao">Cobertura média com acabamento leve</p>
+      <p class="preco-antigo">R$ 69,90</p>
+
+    <div class="preco-linha">
+      <span class="preco">R$ 29,90</span>
+      <span class="parcelamento">3x de R$ 9,97</span>
+    </div>
+
+      <div class="botoes">
+        <button class="btn-comprar">Comprar</button>
+
+        <button class="btn-icone">
+          <span class="plus">+</span>
+          <i class="ri-shopping-cart-line"></i>
+        </button>
+      </div>
+    </div>
+
+</section>
+
+
+
+
+
+<!--MANDAR EMAIL formspree.io-->
+
+<section class="faixa-promocional">
+<form action="https://formspree.io/f/mwpolzjv" method="POST" class="form-newsletter">
+  <h2>
+    Ama promos e lançamentos? ❤️<br>
+    Vem receber tudo em 1ª mão! 👆✨
+  </h2>
+  <div class="form-group">
+    <input type="email" name="email" placeholder="seu e-mail" required>
+    <button type="submit">Enviar</button>
+  </div>
+</form>
+
+</section>
+
+
+<script>
+  function enviarFormulario(event) {
+    event.preventDefault();
+    const email = event.target.querySelector('input').value;
+    alert(`E-mail cadastrado: ${email}`);
+    event.target.reset();
   }
-  navigator.clipboard.writeText(codigo)
-    .then(() => alert("✅ Código Pix copiado com sucesso!"))
-    .catch(() => alert("❌ Erro ao copiar o código Pix."));
-}
 </script>
+
+
+
+<!--FALGUMAS FOTOS-->
+
+<section class="instagram-banner">
+  <div class="instagram-box">
+    <!-- Aqui você pode colocar um carrossel ou grid de imagens futuramente -->
+  </div>
+  <p class="instagram-text">siga @wepink.br</p>
+</section>
+
+
+<!--INSTAGRAM GRID-->
+
+<section class="instagram-gallery">
+ <div class="grid">
+    <!-- Repetir para cada imagem -->
+    <a href="https://www.instagram.com/wepink.br/" target="_blank" class="grid-item">
+      <img src="img/F1.jpg" alt="post wepink">
+      <div class="overlay">
+        <img src="img/insta.png" alt="Instagram Logo">
+      </div>
+    </a>
+    <a href="https://www.instagram.com/wepink.br/" target="_blank" class="grid-item">
+      <img src="img/F1.jpg" alt="post wepink">
+      <div class="overlay">
+        <img src="img/insta.png" alt="Instagram Logo">
+      </div>
+    </a>
+    <a href="https://www.instagram.com/wepink.br/" target="_blank" class="grid-item">
+      <img src="img/F1.jpg" alt="post wepink">
+      <div class="overlay">
+        <img src="img/insta.png" alt="Instagram Logo">
+      </div>
+    </a>
+    <a href="https://www.instagram.com/wepink.br/" target="_blank" class="grid-item">
+      <img src="img/F1.jpg" alt="post wepink">
+      <div class="overlay">
+        <img src="img/insta.png" alt="Instagram Logo">
+      </div>
+    </a>
+    <a href="https://www.instagram.com/wepink.br/" target="_blank" class="grid-item">
+      <img src="img/F1.jpg" alt="post wepink">
+      <div class="overlay">
+        <img src="img/insta.png" alt="Instagram Logo">
+      </div>
+    </a>
+    <a href="https://www.instagram.com/wepink.br/" target="_blank" class="grid-item">
+      <img src="img/F1.jpg" alt="post wepink">
+      <div class="overlay">
+        <img src="img/insta.png" alt="Instagram Logo">
+      </div>
+    </a>
+  </div>
+</section>
+
+
+
+
+<!--RODAPÉ-->
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-left">
+     <img alt="Logo WeBeauty" src="assets/weepink-branco.svg"/>
+      <ul>
+        <li><a href="#">sobre nós <i class="fa-solid fa-arrow-right fa-xs"></i></a></li>
+        <li><a href="#">central de ajuda <i class="fa-solid fa-arrow-right fa-xs"></i></a></li>
+        <li><a href="#">troca e devoluções <i class="fa-solid fa-arrow-right fa-xs"></i></a></li>
+        <li><a href="#">whatsapp <i class="fa-solid fa-arrow-right fa-xs"></i></a></li>
+        <li><a href="#">regulamentos <i class="fa-solid fa-arrow-right fa-xs"></i></a></li>
+        <li><a href="#">trabalhe conosco <i class="fa-solid fa-arrow-right fa-xs"></i></a></li>
+        <li><a href="#">consulte sua entrega <i class="fa-solid fa-arrow-right fa-xs"></i></a></li>
+        <li><a href="#">franquias <i class="fa-solid fa-arrow-right fa-xs"></i></a></li>
+        <li><a href="#">nossas lojas <i class="fa-solid fa-arrow-right fa-xs"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="footer-center">
+      <div class="social-icons">
+        <a href="#"><img src="assets/instagram.svg" alt="Instagram"></a>
+        <a href="#"><img src="assets/YT.webp" alt="YouTube"></a>
+        <a href="#"><img src="assets/tiktok.webp" alt="TikTok"></a>
+      </div>
+      <a href="#" class="back-to-top"><i class="fa-solid fa-arrow-up"></i>
+ voltar ao topo</a>
+    </div>
+
+    <div class="footer-right">
+      <h3>Formas de pagamento</h3>
+      <div class="payment-icons">
+        <img src="assets/visa.svg" alt="Visa">
+        <img src="assets/mastercard.svg" alt="Mastercard">
+        <img src="assets/dinersclub.svg" alt="Elo">
+        <img src="assets/amex.svg" alt="Amex">
+        <img src="assets/pix.svg" alt="Pix">
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      Todos os direitos reservados © 2022 | SAVI COSMÉTICOS LTDA | CNPJ: 42.422.967/0001-01<br>
+      Contato: +55 11 99556-4258
+    </p>
+    <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+  </div>
+</footer>
+
+
+
+
   <script>
-    const mp = new MercadoPago('APP_USR-ecdd1ded-4542-4a00-919a-0e67bf52157a');
+   lucide.createIcons();
+  </script>
+  <script src="script.js">
+  </script>
 
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById(btn.dataset.tab).classList.add('active');
-      });
-    });
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2><i class="ri-shopping-cart-line"></i> seu carrinho</h2>
+    <button class="close-cart" onclick="toggleCart()">×</button>
+  </div>
 
-    document.getElementById('finalizar-pagamento').addEventListener('click', async function (e) {
-      e.preventDefault();
-      const valor = parseFloat(document.getElementById('valor').value);
-      const formData = {
-        cardNumber: document.getElementById('card-number').value.replace(/\s/g, ''),
-        cardholderName: document.getElementById('card-name').value,
-        cardExpirationMonth: document.getElementById('expiry-month').value,
-        cardExpirationYear: document.getElementById('expiry-year').value,
-        securityCode: document.getElementById('cvv').value,
-        identificationType: "CPF",
-        identificationNumber: document.getElementById('cpf').value.replace(/\D/g, ''),
-        email: document.getElementById('email').value
-      };
+  <div class="cart-items">
+    <!-- Mantém vazio ou insere texto "Seu carrinho está vazio" se desejar -->
+  </div>
 
-      // Validações
-      if (!valor || valor <= 0) return alert('Valor inválido.');
-      if (!/^\d{16}$/.test(formData.cardNumber)) return alert('Número do cartão inválido.');
-      if (!/^\d{3}$/.test(formData.securityCode)) return alert('CVV inválido.');
-      if (!formData.cardholderName || formData.cardholderName.length < 3) return alert('Nome inválido.');
-      if (!/^\d{2}$/.test(formData.cardExpirationMonth) || !/^\d{2,4}$/.test(formData.cardExpirationYear)) return alert('Data de validade inválida.');
-      if (!/^\d{11}$/.test(formData.identificationNumber)) return alert('CPF inválido.');
-      if (!/\S+@\S+\.\S+/.test(formData.email)) return alert('Email inválido.');
+  <div class="cart-footer">
+    <div class="cart-summary">
+      <p>descontos <span>-R$ </span></p>
+      <p>total <span>R$ </span></p>
+    </div>
+    <div class="cart-buttons">
+      <button class="continue-btn" onclick="toggleCart()">continuar comprando</button>
+     <button class="checkout-btn" onclick="irParaPagamento()">finalizar compra</button>
 
-      try {
-        const tokenResponse = await mp.createCardToken({
-          cardNumber: formData.cardNumber,
-          cardholder: {
-            name: formData.cardholderName,
-            identification: {
-              type: formData.identificationType,
-              number: formData.identificationNumber
-            }
-          },
-          expirationMonth: formData.cardExpirationMonth,
-          expirationYear: formData.cardExpirationYear,
-          securityCode: formData.securityCode
-        });
+    </div>
+  </div>
+</div>
 
-        const token = tokenResponse.id;
-        const parcelas = document.getElementById('installments').value;
 
-        const pagamento = await fetch('http://localhost:3000/pagar-cartao', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            token,
-            parcelas,
-            email: formData.email,
-            cpf: formData.identificationNumber,
-            valor
-          })
-        });
 
-        const resposta = await pagamento.json();
-        if (resposta.sucesso) {
-          alert("✅ Pagamento aprovado com sucesso!");
-          localStorage.removeItem('webeautyCarrinho');
-        } else {
-          alert("❌ Pagamento recusado: " + (resposta.erro || 'Tente novamente.'));
-        }
-      } catch (error) {
-        alert("❌ Erro ao processar pagamento.");
-        console.error(error);
-      }
-    });
 
-    document.getElementById('gerar-pix').addEventListener('click', async () => {
-      const valor = parseFloat(document.getElementById('valor-pix').value);
-      const resposta = await fetch('http://localhost:3000/gerar-pix', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ valor })
-      });
-      const dados = await resposta.json();
-      document.getElementById('pix-qrcode').src = dados.qrcode;
-      document.getElementById('pix-codigo').innerText = dados.copiaecola;
-    });
 
-    // Preencher valor fixo vindo do carrinho
-    document.addEventListener('DOMContentLoaded', () => {
-      const carrinhoSalvo = localStorage.getItem('webeautyCarrinho');
-      if (carrinhoSalvo) {
-        try {
-          const items = JSON.parse(carrinhoSalvo);
-          const total = items.reduce((soma, item) => {
-            const preco = parseFloat((item.price || '0').replace('R$', '').replace(',', '.'));
-            return soma + (preco * (item.quantity || 0));
-          }, 0);
-          const valorFinal = total.toFixed(2);
-          document.getElementById('valor').value = valorFinal;
-          document.getElementById('valor-pix').value = valorFinal;
-        } catch (e) {
-          console.error('Erro ao calcular valor do carrinho', e);
-        }
-      }
-    });
-  
-function copiarPix() {
-  const codigo = document.getElementById("pix-codigo").innerText;
-  if (!codigo || codigo.includes("Clique abaixo para gerar")) {
-    alert("Gere o código Pix antes de copiar.");
-    return;
+ 
+<script>
+  function irParaPagamento() {
+    const total = document.getElementById("total-price").innerText.replace('R$', '').trim();
+    const url = "https://pagamento-api-1.onrender.com/pagamento.html?valor=" + encodeURIComponent(total);
+    window.location.href = url;
   }
-  navigator.clipboard.writeText(codigo)
-    .then(() => alert("✅ Código Pix copiado com sucesso!"))
-    .catch(() => alert("❌ Erro ao copiar o código Pix."));
-}
 </script>
 </body>
 </html>
